@@ -1,0 +1,507 @@
+index.html 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shyam Narayan Seva Sansthan - NGO for Healthcare & Social Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></svg>');
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hindi-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .english-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #4a5568;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .registration-info {
+            background: rgba(255,255,255,0.2);
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .whatsapp-contact {
+            background: #25d366;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .whatsapp-contact:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav {
+            background: #2d3748;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav a:hover {
+            background: #4299e1;
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section:nth-child(even) {
+            background: #f7fafc;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d3748;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .address-section {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .address-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4299e1;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            background: #4299e1;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: #3182ce;
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .hindi-title {
+                font-size: 1.8rem;
+            }
+            
+            .english-title {
+                font-size: 1.4rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="hindi-title">श्याम नारायण सेवा संस्थान</div>
+            <div class="english-title">SHYAM NARAYAN SEVA SANSTHAN</div>
+            <div class="registration-info">
+                (A Facts Growing NGO Regd Under Indian Society Registration Act, 21, 1860)
+                <br><strong>Regd. 1300/2008-09</strong>
+            </div>
+            <div class="contact-info">
+                <a href="https://wa.me/919431012313" class="whatsapp-contact">
+                    📱 WhatsApp: 94310 12313
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#causes">Our Causes</a>
+            <a href="#hospital">Hospital</a>
+            <a href="#donate">Donate</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Serving Humanity with Compassion</h2>
+            <p>Dedicated to healthcare, education, and social welfare for the underprivileged</p>
+            <a href="#donate" class="cta-button">Support Our Cause</a>
+        </div>
+    </section>
+    
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Our Mission</h2>
+            <div class="animate-fade-in">
+                <p style="font-size: 1.1rem; text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                    Shyam Narayan Seva Sansthan is a registered non-governmental organization committed to serving society through various humanitarian initiatives. Since our registration in 2008-09, we have been working tirelessly to provide healthcare, education, and social services to those who need them most.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">🏥</div>
+                    <h3>Healthcare Services</h3>
+                    <p>Providing medical aid, health camps, and hospital facilities for the underprivileged communities.</p>
+                </div>
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">📚</div>
+                    <h3>Education Support</h3>
+                    <p>Supporting education initiatives and providing learning opportunities for children from disadvantaged backgrounds.</p>
+                </div>
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">🤝</div>
+                    <h3>Social Welfare</h3>
+                    <p>Community development programs, disaster relief, and social support services for vulnerable populations.</p>
+                </div>
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">🍽️</div>
+                    <h3>Food & Nutrition</h3>
+                    <p>Organizing food distribution drives and nutrition programs for malnourished children and elderly.</p>
+                </div>
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">💧</div>
+                    <h3>Clean Water</h3>
+                    <p>Providing access to clean drinking water and sanitation facilities in rural areas.</p>
+                </div>
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">👵</div>
+                    <h3>Elder Care</h3>
+                    <p>Special care and support services for senior citizens and elderly members of society.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="hospital" class="section">
+        <div class="container">
+            <h2>Our Hospital Initiative</h2>
+            <div class="animate-fade-in" style="text-align: center;">
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto 2rem; line-height: 1.8;">
+                    We are committed to providing quality healthcare services through our hospital facilities. Our medical team works dedicatedly to serve patients with compassion and professional excellence.
+                </p>
+                <a href="#contact" class="cta-button">Learn More About Our Hospital</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="address-section">
+        <div class="container">
+            <h2>Visit Our Head Office</h2>
+            <div class="address-card animate-fade-in">
+                <h3>📍 Head Office Address</h3>
+                <p><strong>Village + P.O. - Paganiya Aima</strong></p>
+                <p><strong>Via - Hardi, P.S. + Block - Saraiya</strong></p>
+                <p><strong>District - Muzaffarpur, Bihar</strong></p>
+                <p><strong>Pin Code - 843122</strong></p>
+                <br>
+                <p>📞 Contact: <strong>94310 12313</strong></p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="donate" class="section">
+        <div class="container">
+            <h2>Support Our Cause</h2>
+            <div style="text-align: center;" class="animate-fade-in">
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Your contribution can make a real difference in someone's life. Join us in our mission to serve humanity and create positive change in society.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/919431012313" class="cta-button">💬 Contact via WhatsApp</a>
+                    <a href="#contact" class="cta-button" style="background: #4299e1;">📧 Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Shyam Narayan Seva Sansthan</h3>
+                    <p>A registered NGO dedicated to serving humanity through healthcare, education, and social welfare initiatives.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#about" style="color: #a0aec0;">About Us</a></p>
+                    <p><a href="#services" style="color: #a0aec0;">Our Services</a></p>
+                    <p><a href="#hospital" style="color: #a0aec0;">Hospital</a></p>
+                    <p><a href="#donate" style="color: #a0aec0;">Donate</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p>📱 Phone: 94310 12313</p>
+                    <p>📍 Paganiya Aima, Via Hardi</p>
+                    <p>Muzaffarpur, Bihar - 843122</p>
+                    <p>🏛️ Regd: 1300/2008-09</p>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://wa.me/919431012313">📱</a>
+                <a href="mailto:info@shyamnarayanseva.org">✉️</a>
+                <a href="#contact">📞</a>
+            </div>
+            
+            <div style="border-top: 1px solid #4a5568; padding-top: 1rem; margin-top: 2rem;">
+                <p>&copy; 2025 Shyam Narayan Seva Sansthan. All rights reserved. | Registered under Indian Society Registration Act, 21, 1860</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with animation class
+        document.querySelectorAll('.animate-fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Add some interactive hover effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
